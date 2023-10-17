@@ -50,43 +50,43 @@ def callback():
         "channel_secret": LINE_CHANNEL_SECRET,
         "message_access": LINE_MESSAGE_ACCESS
     }
-    # # get X-Line-Signature header value
-    # signature = request.headers['X-Line-Signature']
+    # get X-Line-Signature header value
+    signature = request.headers['X-Line-Signature']
 
-    # # get request body as text
-    # body = request.get_data(as_text=True)
-    # app.logger.info("Request body: " + body)
+    # get request body as text
+    body = request.get_data(as_text=True)
+    app.logger.info("Request body: " + body)
 
-    # # handle webhook body
-    # try:
-    #     handler.handle(body, signature)
-    # except InvalidSignatureError:
-    #     app.logger.info("Invalid signature. Please check your channel access token/channel secret.")
-    #     abort(400)
+    # handle webhook body
+    try:
+        handler.handle(body, signature)
+    except InvalidSignatureError:
+        app.logger.info("Invalid signature. Please check your channel access token/channel secret.")
+        abort(400)
 
-    # return 'OK'
+    return 'OK'
 
 
-# @handler.add(MessageEvent, message=TextMessageContent)
-# def handle_message(event):
-#     with ApiClient(configuration) as api_client:
-#         client = Client(chat_url)
-#         prompt = event.message.text
-#         result = client.predict(
-#             prompt,	# str in 'Message' Textbox component
-#             0.9,
-#             500,
-#             0.95,
-#             1.0,
-# 	    api_name="/chat"
-#         )
-#         result = result.replace("</s>", "")
-#         line_bot_api = MessagingApi(api_client)
-#         line_bot_api.reply_message_with_http_info(
-#             ReplyMessageRequest(
-#                 reply_token=event.reply_token,
-#                 messages=[TextMessage(text=result)]
-#             )
-#         )
+@handler.add(MessageEvent, message=TextMessageContent)
+def handle_message(event):
+    with ApiClient(configuration) as api_client:
+        client = Client(chat_url)
+        prompt = event.message.text
+        result = client.predict(
+            prompt,	# str in 'Message' Textbox component
+            0.9,
+            500,
+            0.95,
+            1.0,
+	    api_name="/chat"
+        )
+        result = result.replace("</s>", "")
+        line_bot_api = MessagingApi(api_client)
+        line_bot_api.reply_message_with_http_info(
+            ReplyMessageRequest(
+                reply_token=event.reply_token,
+                messages=[TextMessage(text=result)]
+            )
+        )
 
 
