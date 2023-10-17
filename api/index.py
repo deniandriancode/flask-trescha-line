@@ -24,17 +24,17 @@ from linebot.v3.webhooks import (
     TextMessageContent
 )
 
-# LINE_CHANNEL_SECRET = os.environ["TRESCHA_LINE_CHANNEL_SECRET"]
-# LINE_MESSAGE_ACCESS = os.environ["TRESCHA_LINE_MESSAGE_ACCESS"]
+LINE_CHANNEL_SECRET = "e0c1e250024e29fa9e321cd7450fbaa6"
+LINE_MESSAGE_ACCESS = "uKahr+yDpeuCgFzXhCUyrJ0zkiQwyB/lFJrBsQUdnvQv8ZR61MWryzU6J7HhqrbzjOuvK0zwc4R+Cvwftnqj7S5zX9DvFGWFmIDPzCtIzik+KbwoQrr4BzZruEzqhqj49H4vKmfFkeEBytxQi/50HgdB04t89/1O/w1cDnyilFU="
 
 app = Flask(__name__)
 
-# configuration = Configuration(access_token=LINE_MESSAGE_ACCESS)
-# handler = WebhookHandler(LINE_CHANNEL_SECRET)
+configuration = Configuration(access_token=LINE_MESSAGE_ACCESS)
+handler = WebhookHandler(LINE_CHANNEL_SECRET)
 
 
-# chat_url = "https://deniandriancode-trescha-chatbot.hf.space/"
-# chat_url_stranger = "https://deniandriancode-trescha-stranger-chatbot.hf.space/"
+chat_url = "https://deniandriancode-trescha-chatbot.hf.space/"
+chat_url_stranger = "https://deniandriancode-trescha-stranger-chatbot.hf.space/"
 
 @app.route("/")
 def greeting_default():
