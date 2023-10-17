@@ -29,8 +29,8 @@ LINE_MESSAGE_ACCESS = "uKahr+yDpeuCgFzXhCUyrJ0zkiQwyB/lFJrBsQUdnvQv8ZR61MWryzU6J
 
 app = Flask(__name__)
 
-configuration = Configuration(access_token=LINE_MESSAGE_ACCESS)
-handler = WebhookHandler(LINE_CHANNEL_SECRET)
+# configuration = Configuration(access_token=LINE_MESSAGE_ACCESS)
+# handler = WebhookHandler(LINE_CHANNEL_SECRET)
 
 
 chat_url = "https://deniandriancode-trescha-chatbot.hf.space/"
