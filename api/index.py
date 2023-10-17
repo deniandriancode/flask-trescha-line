@@ -1,40 +1,40 @@
 from flask import Flask, request, abort
-import os
-import random
-import time
-import datetime
+# import os
+# import random
+# import time
+# import datetime
 
-from gradio_client import Client
+# from gradio_client import Client
 
-from linebot.v3 import (
-    WebhookHandler
-)
-from linebot.v3.exceptions import (
-    InvalidSignatureError
-)
-from linebot.v3.messaging import (
-    Configuration,
-    ApiClient,
-    MessagingApi,
-    ReplyMessageRequest,
-    TextMessage
-)
-from linebot.v3.webhooks import (
-    MessageEvent,
-    TextMessageContent
-)
+# from linebot.v3 import (
+#     WebhookHandler
+# )
+# from linebot.v3.exceptions import (
+#     InvalidSignatureError
+# )
+# from linebot.v3.messaging import (
+#     Configuration,
+#     ApiClient,
+#     MessagingApi,
+#     ReplyMessageRequest,
+#     TextMessage
+# )
+# from linebot.v3.webhooks import (
+#     MessageEvent,
+#     TextMessageContent
+# )
 
-LINE_CHANNEL_SECRET = os.environ["TRESCHA_LINE_CHANNEL_SECRET"]
-LINE_MESSAGE_ACCESS = os.environ["TRESCHA_LINE_MESSAGE_ACCESS"]
+# LINE_CHANNEL_SECRET = os.environ["TRESCHA_LINE_CHANNEL_SECRET"]
+# LINE_MESSAGE_ACCESS = os.environ["TRESCHA_LINE_MESSAGE_ACCESS"]
 
 app = Flask(__name__)
 
-configuration = Configuration(access_token=LINE_MESSAGE_ACCESS)
-handler = WebhookHandler(LINE_CHANNEL_SECRET)
+# configuration = Configuration(access_token=LINE_MESSAGE_ACCESS)
+# handler = WebhookHandler(LINE_CHANNEL_SECRET)
 
 
-chat_url = "https://deniandriancode-trescha-chatbot.hf.space/"
-chat_url_stranger = "https://deniandriancode-trescha-stranger-chatbot.hf.space/"
+# chat_url = "https://deniandriancode-trescha-chatbot.hf.space/"
+# chat_url_stranger = "https://deniandriancode-trescha-stranger-chatbot.hf.space/"
 
 @app.route("/")
 def greeting_default():
