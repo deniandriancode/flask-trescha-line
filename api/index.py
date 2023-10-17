@@ -42,7 +42,11 @@ def greeting_default():
 
 @app.route("/callback", methods=['POST'])
 def callback():
-    return {"message": "OK POST"}
+    return {
+        "message": "OK POST",
+        "channel_secret": LINE_CHANNEL_SECRET,
+        "message_access": LINE_MESSAGE_ACCESS
+    }
     # # get X-Line-Signature header value
     # signature = request.headers['X-Line-Signature']
 
