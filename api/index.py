@@ -40,7 +40,7 @@ chat_url_stranger = "https://deniandriancode-trescha-stranger-chatbot.hf.space/"
 def greeting_default():
     return "<p>You are viewing a working website built with Flask.</p>"
 
-@app.route("/", methods=['POST'])
+@app.route("/callback", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
